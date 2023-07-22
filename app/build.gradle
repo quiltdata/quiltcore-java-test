@@ -20,6 +20,9 @@ repositories {
 }
 
 dependencies {
+    // quiltcore
+    implementation zipTree('../../quiltcore-java/lib/build/distributions/quiltcore.zip')
+
     // Use the latest Groovy version for building this library
     implementation 'org.codehaus.groovy:groovy-all:3.0.13'
 
