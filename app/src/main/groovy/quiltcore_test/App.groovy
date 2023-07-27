@@ -5,11 +5,12 @@ import java.nio.file.Path
 import com.quiltdata.quiltcore.Registry
 import com.quiltdata.quiltcore.Namespace
 import com.quiltdata.quiltcore.Manifest
+import com.quiltdata.quiltcore.key.S3PhysicalKey
 
 
 class App {
     void install(String bucket, String name, Path dest) {
-        Path registryPath = Path.of(new URI("s3://${bucket}"))
+        S3PhysicalKey registryPath = new S3PhysicalKey(bucket, "", null)
         Registry registry = new Registry(registryPath)
         Namespace namespace = registry.getNamespace(name)
         String hash = namespace.getHash('latest')
