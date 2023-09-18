@@ -7,6 +7,8 @@ import com.quiltdata.quiltcore.Namespace
 import com.quiltdata.quiltcore.Manifest
 import com.quiltdata.quiltcore.key.S3PhysicalKey
 
+//import software.amazon.awssdk.core.ResponseInputStream
+
 
 class App {
     void install(String bucket, String name, Path dest) {
@@ -20,11 +22,15 @@ class App {
     }
 
     static void main(String[] args) {
-        if (args.length != 3) {
-            println "Usage: bucket package dest"
-            System.exit(1)
-        }
-        new App().install(args[0], args[1], Path.of(args[2]))
+//        if (args.length != 3) {
+//            println "Usage: bucket package dest"
+//            System.exit(1)
+//        }
+//        new App().install(args[0], args[1], Path.of(args[2]))
+
+        S3PhysicalKey test = new S3PhysicalKey("quilt-dima2", ".quilt/workflows/config.yml", null)
+        println(test.open().inputStream)
+
         println "done"
     }
 }

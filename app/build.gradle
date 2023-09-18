@@ -17,11 +17,12 @@ plugins {
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+    maven { url = 'https://quilt-dima.s3.amazonaws.com/maven/releases' }
 }
 
 dependencies {
     // quiltcore
-    implementation zipTree('../../quiltcore-java/lib/build/distributions/quiltcore.zip')
+    implementation 'com.quiltdata.quiltcore:quiltcore:0.0.3'
 
     // Use the latest Groovy version for building this library
     implementation 'org.codehaus.groovy:groovy-all:3.0.13'
